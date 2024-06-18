@@ -11,6 +11,6 @@ Evaluate model performance with standard metrics
 
 # Dataset
 
-The project uses the SMS Spam Collection Dataset, which contains 5,574 SMS messages labeled as ham or spam.
+The project uses the SMS Spam Collection Dataset, which contains 5,572 SMS messages labeled as ham or spam.
 
 
