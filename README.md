@@ -1,4 +1,3 @@
-## email-spam-classifier-new
 # Introduction
 
 The SMS Spam Classifier is a machine learning project designed to classify SMS messages as either spam or ham (non-spam). This tool helps filter out unwanted spam messages and improves the efficiency of communication channels.
