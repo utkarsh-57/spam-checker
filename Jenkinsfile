@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.10' 
+            args '-u root'      
+        }
+    }
 
     environment {
         VENV_DIR = 'venv'
@@ -16,7 +21,7 @@ pipeline {
         stage('Setup Python Virtual Env') {
             steps {
                 echo 'Setting up virtual environment...'
-                sh 'python3 -m venv $VENV_DIR'
+                sh 'python -m venv $VENV_DIR'
                 sh '. $VENV_DIR/bin/activate && pip install --upgrade pip'
             }
         }
