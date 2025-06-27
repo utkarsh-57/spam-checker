@@ -1,13 +1,13 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.10' 
-            args '-u root'      
+            image 'python:3.10'
+            args '-u root'
         }
     }
 
     environment {
-        VENV_DIR = 'venv'
+        VENV_DIR = '/tmp/venv'
     }
 
     stages {
@@ -29,21 +29,21 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                echo 'Installing required packages...'
+                echo 'Installing requirements...'
                 sh '. $VENV_DIR/bin/activate && pip install -r requirements.txt'
             }
         }
 
         stage('Test Run') {
             steps {
-                echo 'Running a dry test (loading model)...'
+                echo 'Running test...'
                 sh '. $VENV_DIR/bin/activate && python test_model.py'
             }
         }
 
         stage('Lint Check (optional)') {
             steps {
-                echo 'Checking Python code quality...'
+                echo 'Lint checking...'
                 sh '. $VENV_DIR/bin/activate && pip install pylint && pylint *.py || true'
             }
         }
