@@ -21,6 +21,7 @@ pipeline {
         stage('Setup Python Virtual Env') {
             steps {
                 echo 'Setting up virtual environment...'
+                sh 'apt-get update && apt-get install -y python3-venv'
                 sh 'python -m venv $VENV_DIR'
                 sh '. $VENV_DIR/bin/activate && pip install --upgrade pip'
             }
